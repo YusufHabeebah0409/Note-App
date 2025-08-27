@@ -1,0 +1,20 @@
+.canvas{
+    position: absolute;
+    z-index: 1;
+    width: 350px;
+    height: 100px;
+    background-color: #202120;
+    display: none;
+    top: 18px;
+    left: 40px;
+    border-radius: 5px;
+    padding:10px  20px;
+}
+.canvas div {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.canvas div:hover {
+    border: 1px solid white;
+}
