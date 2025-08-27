@@ -19,21 +19,27 @@ export class App implements OnInit {
     }
   }
 
- canvas = false;
- showCanvas() {
-   this.canvas = true;
- }
+  canvas = false;
+  showCanvas() {
+    this.canvas = true;
+    console.log(this.canvas);
+  }
 
- noteColour = "#202124"
- pickColour(item:any){
-  this.noteColour = item;
- }
+  noteColour = "#fff"
+  pickColour(item: any) {
+    this.noteColour = item;
+    this.canvas = false;
+    console.log(this.canvas);
+    
+  }
 
- colors = ['#202124', '#77172E', '#692B17','#7C4A03','#264D3B', '#0C625D','#256377','#284255','#472E5B', '#6C394F', '#4b443A', '#232427']
+  colors = ['#fff','#5d6ea0ff', '#77172E', '#692B17', '#7C4A03', '#264D3B', '#0C625D', '#256377', '#284255', '#472E5B', '#6C394F', '#4b443A', '#2c407bff']
+
+  
 
   noteTitle = ""
   noteContent = ""
-  noteBooks: Array<{ title: string, content: string, colour:any }> = []
+  noteBooks: Array<{ title: string, content: string, colour: any, bgimage:any }> = []
 
   constructor() {
     document.addEventListener('mousedown', this.handleClickOutside.bind(this))
@@ -57,13 +63,13 @@ export class App implements OnInit {
     }
   }
   addNote() {
-    this.noteBooks.push({ title: this.noteTitle, content: this.noteContent, colour: this.noteColour })
+    this.noteBooks.push({ title: this.noteTitle, content: this.noteContent, colour: this.noteColour, bgimage: '' })
     console.log(this.noteBooks);
     localStorage.setItem('NoteBooks', JSON.stringify(this.noteBooks))
     this.noteTitle = ""
     this.noteContent = ""
   }
-  
+
 
   delNote(index: number) {
     const removeItem = confirm("Are You Sure You Want To Delete This Note ")
