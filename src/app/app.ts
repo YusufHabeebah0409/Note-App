@@ -3,10 +3,11 @@ import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { noop } from 'rxjs';
+import { NgOptimizedImage } from "../../node_modules/@angular/common/index";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, NgOptimizedImage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
