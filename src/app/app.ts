@@ -3,11 +3,11 @@ import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { noop } from 'rxjs';
-import { NgOptimizedImage } from "../../node_modules/@angular/common/index";
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, FormsModule, NgOptimizedImage],
+  imports: [RouterOutlet, CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -26,21 +26,22 @@ export class App implements OnInit {
     console.log(this.canvas);
   }
 
-  noteColour = "#fff"
+  noteColour = ""
   pickColour(item: any) {
     this.noteColour = item;
     this.canvas = false;
     console.log(this.canvas);
-    
+    this.noteBgImage = "";
+
   }
 
-  colors = ['#fff','#5d6ea0ff', '#77172E', '#692B17', '#7C4A03', '#264D3B', '#0C625D', '#256377', '#284255', '#472E5B', '#6C394F', '#4b443A', '#2c407bff']
+  colors = ['#fff', '#5d6ea0ff', '#77172E', '#692B17', '#7C4A03', '#264D3B', '#0C625D', '#256377', '#284255', '#472E5B', '#6C394F', '#4b443A', '#2c407bff']
 
-  
+
 
   noteTitle = ""
   noteContent = ""
-  noteBooks: Array<{ title: string, content: string, colour: any, bgimage:any }> = []
+  noteBooks: Array<{ title: string, content: string, colour: any, bgimage: any }> = []
 
   constructor() {
     document.addEventListener('mousedown', this.handleClickOutside.bind(this))
@@ -83,4 +84,17 @@ export class App implements OnInit {
   editNote() {
     alert('Working on me')
   }
+
+  
+backgroundImages = ['svgexport-29.png', 'svgexport-30.png','svgexport-31.png', 'svgexport-32.png', 'svgexport-33.png', 'svgexport-34.png', 'svgexport-35.png',
+'svgexport-36.png', 'svgexport-37.png'
+]
+
+noteBgImage = ""
+pickBackground(item: any){
+  this.noteBgImage = item;
+  this.noteColour = "";
 }
+
+}
+
