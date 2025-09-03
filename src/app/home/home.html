@@ -46,11 +46,14 @@
   <div class="row g-3">
     @for (item of noteBooks; track $index) {
     <div class="col-md-3 col-sm-6">
-      <div class="card h-100 shadow-sm" [style]="{'background-color': item.colour, 'background-image': `url(assets/images/${item.bgimage})`}" style="background-repeat: no-repeat; background-position: center; background-size: cover;">
-        <div class="card-body">
+      <div class="card h-100 shadow-sm" [style]="{'background-color': item.colour, 'background-image': `url(assets/images/${item.bgimage})`}" style="background-repeat: no-repeat; background-position: center; background-size: cover;" >
+        <div class="card-body" [routerLink]="['note', $index]"
+      routerLinkActive="router-link-active">
           <h5 class="card-title">{{item.title}}</h5>
           <p class="card-text">{{item.content}}</p>
-          <div class="d-flex justify-content-end gap-2 mt-auto">
+          
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-auto">
             <button class="btn btn-primary btn-sm" (click)="editNote()">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -69,7 +72,6 @@
             </button>
 
           </div>
-        </div>
       </div>
     </div>
     }

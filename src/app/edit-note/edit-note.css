@@ -1,0 +1,29 @@
+.edit-card {
+    width: 500px;
+    height: auto;
+    border-radius: 15px;
+    background-color: black;
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    color: white;
+}
+.edit-card .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 5px;
+}
+.title:focus, .content:focus {
+    outline: none;
+    border-color: transparent;
+}
+
+.edit-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+}
