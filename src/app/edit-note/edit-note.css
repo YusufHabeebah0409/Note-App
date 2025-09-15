@@ -18,6 +18,12 @@
     outline: none;
     border-color: transparent;
 }
+.title, .content{
+    background: none;
+    color: white;
+    border: none;
+    width: 100%;
+}
 
 .edit-container {
     

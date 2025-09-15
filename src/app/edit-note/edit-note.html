@@ -1,7 +1,18 @@
 <div class="edit-container">
     <div class="edit-card">
-        <div class="title" contenteditable="true" (input)="autoExpand()" {([(ngModel)]="title")}>{{ title }}</div>
-        <div class="content" contenteditable="true" (input)="autoExpand()" {([(ngModel)]="noteContent")}>{{ noteContent }}</div>
+        <div>
+            <input type="text" (input)="autoExpand()" [(ngModel)]="title" class="title fw-bold" value="{{title}}"/>
+
+        </div>
+
+        <div>
+            
+        <textarea (input)="autoExpand()" [(ngModel)]="noteContent" class="content">{{noteContent}}</textarea>
+        
+
+        </div>
+        
+
     </div>
 
 </div>

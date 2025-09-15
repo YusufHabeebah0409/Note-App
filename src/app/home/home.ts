@@ -23,7 +23,7 @@ ngOnInit() {
     console.log(this.canvas);
   }
 
-  noteColour = ""
+  noteColour = "#fff"
   pickColour(item: any) {
     this.noteColour = item;
     this.canvas = false;
