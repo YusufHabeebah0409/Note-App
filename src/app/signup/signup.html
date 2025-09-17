@@ -3,7 +3,7 @@
         <h2>Sign Up</h2>
 
         <input type="text" placeholder="Enter your first name" formControlName="firstName" autofocus />
-        @if(signupForm.get('firstName')?.errors){
+        @if(signupForm.get('firstName')?.errors && signupForm.get('firstName')?.touched ){
         <p class="text-danger" *ngIf="signupForm.get('firstName')?.hasError('minLength')">
             First name cannot be less than 2 characters
         </p>
