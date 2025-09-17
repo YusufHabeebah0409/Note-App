@@ -56,7 +56,7 @@ export class EditNote implements OnInit{
       background: this.note.bgimage
     };
     localStorage.setItem('NoteBooks', JSON.stringify(this.notes));
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
   
 
