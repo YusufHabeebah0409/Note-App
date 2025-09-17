@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,9 @@ import { FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angula
 })
 export class Signup {
 
-  public builder =  inject(FormBuilder);
+  public builder = inject(FormBuilder);
+
+  constructor(private _http: HttpClient, public router: Router) { }
 
   signupForm = this.builder.group({
     firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -20,8 +24,19 @@ export class Signup {
   });
 
 
- register(){
-   alert('Registered Successfully');
- }
+  register() {
+    this._http.post('http://localhost/my-project-php/august-php/frontendreg.php', this.signupForm.value).subscribe((response: any) => {
+
+      if (response.status) {
+        this.router.navigate(['/login'])
+
+      } else {
+        alert('Something Went Wrong')
+      }
+
+    }
+    )
+
+  }
 
 }
