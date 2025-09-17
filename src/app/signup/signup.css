@@ -4,10 +4,10 @@ main {
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: black;
+    /* background-color: black; */
 }
 
-div {
+form {
     width: 25%;
     padding: 20px 15px;
     border: 5px solid #f4dbc5;
