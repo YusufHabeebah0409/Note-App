@@ -1,10 +1,27 @@
 <main>
-    <form>
+    <form [formGroup]="signinForm">
         <h2>Sign In</h2>
-        <input type="email" placeholder="Enter your email"  required>
-        <input type="password" placeholder="Enter your password"  required>
-        <button>Sign In</button>
+        <input type="email" placeholder="Enter your email" formControlName="email" autofocus required>
+        @if(signinForm.get('email')?.errors && signinForm.get('email')?.dirty ){
+        <p class="text-danger" *ngIf="signinForm.get('email')?.hasError('required')">
+            Email is required
+        </p>
+        <p class="text-danger" *ngIf="signinForm.get('email')?.hasError('email')">
+            Invalid email format
+        </p>
 
-        <!-- <small>Don't have an account? <a routerLink="/sign-up"> Sign Up</a></small>  -->
+        }
+
+
+        <input type="password" placeholder="Enter your password" formControlName="password" required>
+        @if(signinForm.get('password')?.errors){
+        <p class="text-danger" *ngIf="signinForm.get('password')?.hasError('pattern')">Password must containt at least 1
+            uppercase, 1 lowercase, 1 special character, a number and must not be less than 8 characters</p>
+
+        }
+
+        <button (click)="signIn()">Sign In</button>
+        
+        <small>Don't have an account? <a routerLink="/register"> Sign Up</a></small>
     </form>
 </main>
