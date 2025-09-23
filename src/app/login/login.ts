@@ -24,7 +24,8 @@ export class Login {
     this._http.post('http://localhost/my-project-php/august-php/frontendlogin.php', this.signinForm.value).subscribe((response: any) => {
       console.log(response);
       if (response.status) {
-        this.router.navigate(['/'])
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/dashboard'])
         
       } else {
         this.error = response.message;
