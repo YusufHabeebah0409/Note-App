@@ -22,7 +22,7 @@ export class Login {
   })
   signIn() {
     this._http.post('http://localhost/my-project-php/august-php/frontendlogin.php', this.signinForm.value).subscribe((response: any) => {
-      console.log(response);
+      // console.log(response);
       if (response.status) {
         localStorage.setItem('token', response.token);
         this.router.navigate(['/dashboard'])
@@ -30,8 +30,6 @@ export class Login {
       } else {
         this.error = response.message;
       }
-
-
     }
     )
 

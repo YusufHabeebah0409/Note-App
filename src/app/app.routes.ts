@@ -6,6 +6,7 @@ import { Signup } from './signup/signup';
 import { Login } from './login/login';
 import { Dashboard } from './dashboard/dashboard';
 import { authGuard } from './auth-guard';
+import { Material } from './material/material';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path: 'register', component:Signup, title: 'Sign Up'},
     {path:'login', component:Login, title: 'Log In'},
     {path:'dashboard', component: Dashboard, title: 'Dashboard', canActivate: [authGuard]},
+    {path:'material', component:Material},
     {path: '**', redirectTo: ''}
 ];
