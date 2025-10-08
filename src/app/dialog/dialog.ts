@@ -1,0 +1,14 @@
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog'
+
+@Component({
+  selector: 'app-dialog',
+  imports: [MatDialogModule,MatButtonModule ],
+  templateUrl: './dialog.html',
+  styleUrl: './dialog.css'
+})
+export class Dialog {
+ dialogRef = inject(MatDialogRef<Dialog>)
+ data = inject(MAT_DIALOG_DATA);
+}

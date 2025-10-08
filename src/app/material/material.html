@@ -1,2 +1,18 @@
 <p>material works!</p>
-<button matButton="outlined"> Click Me</button>
+<button matButton="elevated"> Click Me</button>
+<button matMiniFab> 
+    <mat-icon>home</mat-icon>
+</button>
+
+<button matButton="filled" (click)="checkout()"> Check Out</button>
+
+<button matMiniFab (click)="shop()">
+    <mat-icon>shopping_cart_checkout</mat-icon>
+</button>
+
+
+
+<mat-form-field>
+    <mat-label>Enter your tech stacks</mat-label>
+    <input type="text" placeholder="Your tech stack...">
+</mat-form-field>
